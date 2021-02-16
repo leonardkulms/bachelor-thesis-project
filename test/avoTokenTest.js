@@ -125,8 +125,3 @@ contract("AvoToken", accounts => {
       }     
   });
 });
-
-  
-  
-  
-  
