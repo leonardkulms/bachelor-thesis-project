@@ -76,7 +76,7 @@ contract("AvoToken", accounts => {
       20
     );
   });
-  
+
   it("should show that you cannot buy without an allowance", async () => {
     try {
       await instance.buyToken(10, { value: transferAmount, from: notOwner1 });
@@ -90,8 +90,15 @@ contract("AvoToken", accounts => {
     await instance.incAllowance(notOwner2, 20);
     await instance.buyToken(10, { value: transferAmount, from: notOwner2 });
   });
-  await instance.send(accounts[1], transferAmount, { from: accounts[2] });
-  } catch (error) {
+
+  it("should show that decreasing allowance also works", async () => {
+    await instance.incAllowance(notOwner4, 5);
+    await instance.decAllowance(notOwner4, 2);
+    assert.equal(
+      await instance.getAllowanceAmount(notOwner4),
+      3
+    );
+  });
   assert.throws(() => { throw new Error(error) }, Error, "Insufficient balance");
   }
   });
