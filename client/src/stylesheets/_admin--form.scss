@@ -1,0 +1,39 @@
+.admin-form {
+  @include form;
+  @include container;
+  margin-top: 220px;
+  width: 70vw;
+  height: 50vh;
+  justify-content: space-evenly;
+  border: 1px solid $night;
+}
+
+.admin-button {
+  @include button;
+  width: 100px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 45px;
+}
+
+.admin-input {
+  @include input;
+  width: 100%;
+  box-shadow: 0 3px 3px $light-grey;
+}
+
+.admin-field {
+  @include field;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+  text-align: left;
+}
+
+.admin-radiofield {
+  width: 150px;
+  display: grid;
+  grid-template-columns: 30px auto;
+}

@@ -1,0 +1,6 @@
+@mixin divider {
+  border: 0;
+  border-top: 1px $red solid;
+  width: 70px; 
+  margin-bottom: 20px;
+}

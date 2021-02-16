@@ -1,0 +1,48 @@
+.sale--action {
+  @include container;
+  height: 170px;
+  border: 1px solid $night;
+  background-color: $light-grey;
+}
+
+.sale--action-title {
+  @include title;
+}
+
+.sale--action-divider {
+  @include divider;
+}
+
+.sale--action-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sale--action-form {
+  @include form;
+}
+
+.sale--action-field {
+  @include field;
+}
+
+.sale--action-label {
+  @include label;
+}
+
+.sale--action-input {
+  @include input;
+  margin-top: 5px;
+}
+
+.sale--action-button {
+  @include button;
+  margin-top: 5px;
+}
+
+@media(max-width: 1000px) {
+  .sale--action {
+    justify-self: center;
+  }
+}

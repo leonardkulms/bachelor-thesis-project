@@ -1,0 +1,35 @@
+.sale--request {
+  @include container;
+  border: 1px solid $night;
+  height: 170px;
+}
+
+.sale--request-title {
+  @include title;
+}
+
+.sale--request-divider {
+  @include divider;
+}
+
+.sale--request-form {
+  @include form;
+  align-items: center;
+  justify-content: center;
+}
+
+.sale--request-button {
+  @include button;
+  border-radius: 5px;
+  width: 200px;
+  height: 70px;
+  padding: 10px;
+
+  &[disabled]{
+    background-color: $grey;
+    cursor: not-allowed;
+    &:hover {
+      filter: brightness(100%);
+    }
+  }
+}

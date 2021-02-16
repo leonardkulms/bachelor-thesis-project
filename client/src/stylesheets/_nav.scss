@@ -1,0 +1,38 @@
+.nav {
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: $almost-white;
+  color: $color-text-dark;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav--logo {
+  @include title;
+  margin: 0 5px 0 0;
+}
+
+.nav--links {
+  display: flex;
+  align-items: center;
+}
+
+.nav--link {
+  @include title;
+  margin: 0 10px 0 0;
+  text-decoration: none;
+  color: $color-text-dark;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media(max-width:495px) {
+  .nav--links {
+    display: none;
+  }
+}

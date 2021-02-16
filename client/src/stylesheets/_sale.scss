@@ -1,0 +1,13 @@
+@import 'sale--action';
+@import 'sale--dashboard';
+@import 'sale--request';
+@import 'sale--history';
+@import 'sale--error';
+
+.sale {
+  background-color: $color-main-background;
+  padding: 20px 0;
+  height: 90vh;
+  display: grid;
+  place-items: center;
+}

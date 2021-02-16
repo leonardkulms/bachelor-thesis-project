@@ -1,0 +1,43 @@
+.loading {
+  position: absolute;
+  top: 15px;
+  left: 1%;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loading-bar {
+  width: 4px;
+  height: 16px;
+  border-radius: 4px;
+  animation: loading 1s ease-in-out infinite;
+}
+.loading-bar:nth-child(1) {
+  background-color: $night;
+  animation-delay: 0;
+}
+.loading-bar:nth-child(2) {
+  background-color: $red;
+  animation-delay: 0.09s;
+}
+.loading-bar:nth-child(3) {
+  background-color: $yellow;
+  animation-delay: .18s;
+}
+.loading-bar:nth-child(4) {
+  background-color: $green;
+  animation-delay: .27s;
+}
+
+@keyframes loading {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1, 2.2);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

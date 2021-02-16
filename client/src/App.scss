@@ -1,0 +1,22 @@
+@import 'stylesheets/reset.scss';
+@import 'stylesheets/utilities/container';
+@import 'stylesheets/utilities/divider';
+@import 'stylesheets/utilities/title';
+@import 'stylesheets/utilities/form';
+@import 'stylesheets/font';
+@import 'stylesheets/colors';
+
+@import 'stylesheets/loading';
+@import 'stylesheets/nav';
+@import 'stylesheets/landing';
+@import 'stylesheets/sale';
+@import 'stylesheets/admin';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $color-main-background;
+}
+
+.app {
+  color: $color-text-dark;
+}

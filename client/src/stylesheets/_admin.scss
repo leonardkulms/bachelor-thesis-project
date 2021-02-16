@@ -1,0 +1,117 @@
+@import './admin--form';
+
+.admin,
+.notadmin {
+  margin: 70px 5%;
+}
+
+.admin {
+  display: grid;
+  place-items: center;
+}
+
+.admin--explanation {
+  @include container;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  background-color: $green;
+  color: $color-text-light;
+  height: 220px;
+  transition: height 0.5s ease;
+
+  &.hidden {
+    height: 50px;
+    overflow: hidden;
+  }
+}
+
+.admin--explanation-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin--overview {
+  position: absolute;
+  background-color: $night;
+  color: $almost-white;
+  right: 50px;
+  bottom: 0;
+  height: 50vh;
+  width: 90vw;
+  padding: 20px;
+  border-radius: 30px 30px 0 0;
+  overflow: scroll;
+
+  &.hidden {
+    overflow: hidden;
+    height: 70px;
+  }
+}
+
+.admin--overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.admin--overview-button {
+  @include button;
+  height: 40px;
+  width: 100px;
+  border-radius: 3px;
+  border: 1px solid $red;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.admin--overview-list {
+  font-size: 12px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: scroll;
+}
+
+.admin--overview-item {
+  margin-bottom: 10px;
+}
+
+.admin--history {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background-color: $night;
+  border-radius: 3px;
+  height: 20vh;
+  overflow: scroll;
+  cursor: pointer;
+
+  &.hidden {
+    overflow: hidden;
+    width: 10px;
+  }
+}
+
+.notadmin {
+  height: 90vh;
+  display: grid;
+  margin: 70px 10%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.notadmin--scene {
+  background-image: url('../assets/adminplants.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.notadmin--wit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: $color-text-dark;
+}
