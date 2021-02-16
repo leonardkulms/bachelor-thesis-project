@@ -15,19 +15,22 @@ contract("AvoToken", accounts => {
     instance = await AvoToken.deployed(amount);
   });
 
-it("should check owner account as minter", async () => {
-  let minter = await instance.minter();
-  assert.equal(
-  minter,
-  owner,
-  "Owner Account is not the minter"
-  );
+  it("shows that the account was deployed by accounts[0] (owner)", async () => {
+    let verifiedOwner = await instance.verifyOwner();
+    assert.equal(
+    true,
+    verifiedOwner,
+    "Owner Account is not the one it should be"
+    );
   });
-  
-  it("should check minter’s balance", async () => {
-  let balance = await instance.balances(owner);
-  assert.equal(
-  balance.valueOf(),
+
+  it("shows that verifyOwner only lets owner through", async () => {
+    try {
+    await instance.verifyOwner({ from: notOwner1 });
+    } catch (error) {
+    assert.throws(() => { throw new Error(error) }, Error, "Ownable: caller is not the _owner");
+    }
+  });
   0,
   "Minter’s Coin balance is non-zero"
   );
