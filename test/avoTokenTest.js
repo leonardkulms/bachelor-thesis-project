@@ -1,3 +1,4 @@
+const ethers = require('ethers');
 const AvoToken = artifacts.require("AvoToken");
 
 contract("AvoToken", accounts => {
