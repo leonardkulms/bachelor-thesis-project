@@ -31,18 +31,23 @@ contract("AvoToken", accounts => {
     assert.throws(() => { throw new Error(error) }, Error, "Ownable: caller is not the _owner");
     }
   });
-  0,
-  "Minter’s Coin balance is non-zero"
-  );
+
+  it("should check owner's balance", async () => {
+    let balance = await instance.balanceOf(owner);
+    assert.equal(
+      balance.valueOf(),
+      1000,
+      "The owner's balance is not right"
+    );
   });
-  
-  it("should check second account balance", async () => {
-  let balance = await instance.balances(accounts[1]);
-  assert.equal(
-  balance.valueOf(),
-  0,
-  "Second Account Coin balance is non-zero"
-  );
+
+  it("should check not_owners balance balance", async () => {
+    let balance = await instance.balanceOf(notOwner1);
+    assert.equal(
+      balance.valueOf(),
+      0,
+      "Second Account Coin balance is non-zero"
+    );
   });
   
   it("should mint 1000 Coins to second account", async () => {
