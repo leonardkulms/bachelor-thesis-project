@@ -63,10 +63,18 @@ contract("AvoToken", accounts => {
     true
     );
   });
-  balance.valueOf(),
-  amount,
-  "Second Account’s Coin balance is not equal to the minting amount"
-  );
+
+  it("should show that the owner can create an allowance", async () => {
+    await instance.incAllowance(notOwner1, 20);
+    let countAllowances = await instance.getAllowancesCount();
+    assert.equal(
+      countAllowances,
+      1
+      );
+    assert.equal(
+      await instance.getAllowanceAmount(notOwner1),
+      20
+    );
   });
   
   it("should throw if mint is called not from minter account", async () => {
