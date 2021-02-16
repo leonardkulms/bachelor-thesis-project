@@ -49,11 +49,20 @@ contract("AvoToken", accounts => {
       "Second Account Coin balance is non-zero"
     );
   });
-  
-  it("should mint 1000 Coins to second account", async () => {
-  await instance.mint(accounts[1], amount, { from: owner });
-  let balance = await instance.balances(accounts[1]);
-  assert.equal(
+
+  it("should show that not_owner only exists when created", async () => {
+    let doesExist = await instance.exists(notOwner1);
+    assert.equal(
+      doesExist,
+      false
+    );
+    instance.requestAllowance(notOwner1)
+      .then(doesExist = await instance.exists(notOwner1));
+    assert.equal(
+    doesExist,
+    true
+    );
+  });
   balance.valueOf(),
   amount,
   "Second Account’s Coin balance is not equal to the minting amount"
