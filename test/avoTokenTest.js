@@ -110,20 +110,19 @@ contract("AvoToken", accounts => {
       }     
   });
   
-  it("should transfer 500 Coins from second account to third account", async () => {
-  await instance.mint(accounts[1], amount, { from: owner });
-  await instance.send(accounts[2], transferAmount, { from: accounts[1] });
-  let secondAccBalance = await instance.balances(accounts[1]);
-  let thirdAccBalance = await instance.balances(accounts[2]);
-  assert.equal(
-  secondAccBalance.valueOf(),
-  amount – transferAmount,
-  "Second Account’s Coin balance is not equal to transfer amount"
-  );
-  assert.equal(
-  thirdAccBalance.valueOf(),
-  transferAmount,
-  "Third Account’s Coin balance is not equal to transfer amount"
-  );
+  it("should show that you can sell", async () => {
+    await instance.incAllowance(notOwner4, 30);
+    await instance.buyToken(10, { value: transferAmount, from: notOwner4 });
+    await instance.sellToken(10, { from: notOwner4 });
   });
+
+  it("should show that you cannot sell more than you own", async () => {
+    await instance.incAllowance(notOwner4, 30);
+    await instance.buyToken(10, { value: transferAmount, from: notOwner4 });
+    try {
+      await instance.sellToken(12, { from: notOwner4 });
+    }  catch (error) {
+      assert.throws(() => { throw new Error(error) }, Error, "Error: Returned error: VM Exception while processing transaction: revert ERC20: transfer amount exceeds balance -- Reason given: ERC20: transfer amount exceeds balance.");
+      }     
   });
+});
