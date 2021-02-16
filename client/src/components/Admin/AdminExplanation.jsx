@@ -25,7 +25,7 @@ function AdminExplanation() {
         This is a small controlling board for you.
         <br />
         It enables you to allow other wallets ("beneficiaries") to buy tokens in
-        the sale. Before you allow it, no one can buy any token (even you
+        the sale. Before you allow it, no one can buy any tokens (even you
         yourself.). By buying a token in the sale, the buyer transfers ethers to
         the contract. The contract saves these ethers and transfers AvoTokens to
         the buyer that you owned before.
