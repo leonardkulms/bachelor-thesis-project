@@ -1,16 +1,18 @@
 const AvoToken = artifacts.require("AvoToken");
 
 contract("AvoToken", accounts => {
-
   let owner = accounts[0];
-  let instance;
+  let notOwner1 = accounts[1];
+  let notOwner2 = accounts[2];
+  let notOwner3 = accounts[3];
+  let notOwner4 = accounts[4];
   let amount = 1000;
-  let transferAmount = 500;
+  let transferAmount;
 
   beforeEach(async function () {
-    instance = await AvoToken.new({ from: owner });
+    transferAmount = await ethers.utils.parseEther("10");
+    instance = await AvoToken.deployed(amount);
   });
-})
 
 it("should check owner account as minter", async () => {
   let minter = await instance.minter();
