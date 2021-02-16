@@ -99,6 +99,7 @@ contract("AvoToken", accounts => {
       3
     );
   });
+
   it("should show that you cannot buy more than allowance", async () => {
     await instance.incAllowance(notOwner3, 5);
     try {
@@ -106,10 +107,8 @@ contract("AvoToken", accounts => {
       } catch (error) {
       assert.throws(() => { throw new Error(error) }, Error, "Error: Returned error: VM Exception while processing transaction: revert ERC20: transfer amount exceeds allowance -- Reason given: ERC20: transfer amount exceeds allowance.");
       }     
-  }
-      }     
   });
-  
+
   it("should show that you can sell", async () => {
     await instance.incAllowance(notOwner4, 30);
     await instance.buyToken(10, { value: transferAmount, from: notOwner4 });
@@ -126,3 +125,8 @@ contract("AvoToken", accounts => {
       }     
   });
 });
+
+  
+  
+  
+  

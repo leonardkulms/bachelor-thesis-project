@@ -12,6 +12,7 @@
     "@openzeppelin/contracts": "^3.2.0"
   },
   "dependencies": {
+    "ethers": "^5.0.31",
     "truffle": "^5.1.49"
   }
 }
