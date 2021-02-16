@@ -77,16 +77,19 @@ contract("AvoToken", accounts => {
     );
   });
   
-  it("should throw if mint is called not from minter account", async () => {
-  try {
-  await instance.mint(accounts[2], amount, { from: accounts[1] });
-  } catch (error) {
-  assert.throws(() => { throw new Error(error) }, Error, "Unauthorized Access");
-  }
+  it("should show that you cannot buy without an allowance", async () => {
+    try {
+      await instance.buyToken(10, { value: transferAmount, from: notOwner1 });
+      } catch (error) {
+      assert.throws(() => { throw new Error(error) }, Error, "Error: Returned error: VM Exception while processing transaction: revert Incorrect amount of Eth. -- Reason given: Incorrect amount of Eth..");
+      }
   });
-  
-  it("should transfer 500 Coins from third account to second account", async () => {
-  try {
+
+  it("should show that you can buy with an allowance", async () => {
+    // as long as this does not throw it works
+    await instance.incAllowance(notOwner2, 20);
+    await instance.buyToken(10, { value: transferAmount, from: notOwner2 });
+  });
   await instance.send(accounts[1], transferAmount, { from: accounts[2] });
   } catch (error) {
   assert.throws(() => { throw new Error(error) }, Error, "Insufficient balance");
