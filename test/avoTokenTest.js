@@ -99,8 +99,15 @@ contract("AvoToken", accounts => {
       3
     );
   });
-  assert.throws(() => { throw new Error(error) }, Error, "Insufficient balance");
+  it("should show that you cannot buy more than allowance", async () => {
+    await instance.incAllowance(notOwner3, 5);
+    try {
+      await instance.buyToken(10, { value: transferAmount, from: notOwner3 });
+      } catch (error) {
+      assert.throws(() => { throw new Error(error) }, Error, "Error: Returned error: VM Exception while processing transaction: revert ERC20: transfer amount exceeds allowance -- Reason given: ERC20: transfer amount exceeds allowance.");
+      }     
   }
+      }     
   });
   
   it("should transfer 500 Coins from second account to third account", async () => {
