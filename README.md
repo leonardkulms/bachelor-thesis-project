@@ -52,6 +52,11 @@ You will also find that he currently own 1000 AVO.
 
 Only with this account you can allow other addresses (also get these from the ganache app) to buy AVO.
 
+## testing
+
+The smart contract is tested. 
+Run (if you're still in the client directory, do `cd ..`) `truffle test`
+
 ## help
 
 if something is not working out for you, feel free to reach out to me and I'll see if I can help :)
