@@ -12,8 +12,6 @@ truffle is globally installed (if not:
 
 ### general setup:
 
-the client is a submodule, meaning you will have to register it like explained in the following:
-
 `git clone https://github.com/leonardkulms/bachelor-thesis-project`
 
 `cd bachelor-thesis-project`

@@ -2,7 +2,7 @@
 import { ethers } from 'ethers';
 import AvoToken from '../contracts/AvoToken.json';
 
-const contractAddress = '0xA8002F2661C4520D61a9254Cff4b232Fd7e1bf52';
+const contractAddress = '0xc509d91e5A1B5d32e765012b21f39baBE95Ec723';
 
 function getEther() {
   let provider;
